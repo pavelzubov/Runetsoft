@@ -1,0 +1,95 @@
+{
+  "response": {
+    "tasks": [
+      {
+        "id": "1",
+        "type": "error",
+        "description": "Исправить ошибку вон в том месте",
+        "status": "reconciliation",
+        "date": "2018-05-20T11:11:51.789Z",
+        "importance": "Средне"
+      },
+      {
+        "id": "2",
+        "type": "new",
+        "description": "Добавить вот это без ошибок",
+        "status": "reconciliation",
+        "date": "2018-05-11T11:11:51.789Z",
+        "importance": "Средне"
+      },
+      {
+        "id": "3",
+        "type": "error",
+        "description": "Исправить ошибку в этом месте",
+        "status": "pending",
+        "date": "2018-05-21T11:11:51.789Z",
+        "importance": "Средне"
+      },
+      {
+        "id": "4",
+        "type": "new",
+        "description": "Просто добавить что-то",
+        "status": "development",
+        "date": "2018-05-15T11:11:51.789Z",
+        "importance": "Средне"
+      },
+      {
+        "id": "5",
+        "type": "mod",
+        "description": "Изменить вон там",
+        "status": "development",
+        "date": "2018-05-12T11:11:51.789Z",
+        "importance": "Важно"
+      },
+      {
+        "id": "6",
+        "type": "mod",
+        "description": "Изменить вот тут",
+        "status": "testing",
+        "date": "2018-04-21T11:11:51.789Z",
+        "importance": "Не важно"
+      },
+      {
+        "id": "7",
+        "type": "error",
+        "description": "Исправить срочно это",
+        "status": "correcting",
+        "date": "2018-03-11T11:11:51.789Z",
+        "importance": "Важно"
+      },
+      {
+        "id": "8",
+        "type": "mod",
+        "description": "Подправить вон то",
+        "status": "done",
+        "date": "2018-04-17T11:11:51.789Z",
+        "importance": "Не важно"
+      },
+      {
+        "id": "9",
+        "type": "new",
+        "description": "Сделать что-то новое",
+        "status": "done",
+        "date": "2018-01-01T11:11:51.789Z",
+        "importance": "Не важно"
+      },
+      {
+        "id": "10",
+        "type": "new",
+        "description": "Сделать хоть что-то",
+        "status": "done",
+        "date": "2018-05-20T11:11:51.789Z",
+        "importance": "Средне"
+      },
+      {
+        "id": "11",
+        "type": "error",
+        "description": "Исправить что есть",
+        "status": "done",
+        "date": "2018-05-21T11:11:51.789Z",
+        "importance": "Средне"
+      }
+    ]
+  }
+}
+

@@ -1,10 +1,48 @@
-<div id="aaa" class="draggable" draggable="true"
+<!--<div id="aaa" class="draggable" draggable="true"
      (dragstart)="dragStart($event)"
      (dragenter)="dragEnter($event)"
      (dragexit)="dragexit($event)"
-     ></div>
-<div class="box" draggable="true"
+     >
+  <div>Строка 1</div>
+  <div>Строка 2</div>
+  <div>Строка 3</div>
+</div>
+<div class="box1 boxes"
      (drop)="drop($event)"
      (dragover)="dragOver($event)"
      (dragenter)="dragEnter($event)"
+     (dragleave)="dragLeave($event)"
      (dragend)="dragend($event)"></div>
+<div class="box2 boxes"
+     (drop)="drop($event)"
+     (dragover)="dragOver($event)"
+     (dragenter)="dragEnter($event)"
+     (dragleave)="dragLeave($event)"
+     (dragend)="dragend($event)"></div>
+<div class="box3 boxes"
+     (drop)="drop($event)"
+     (dragover)="dragOver($event)"
+     (dragleave)="dragLeave($event)"
+     (dragenter)="dragEnter($event)"
+     (dragend)="dragend($event)"></div>-->
+<div class="main-container">
+  <div class="bins">
+    <div class="bin {{status.name}}" *ngFor="let status of statuses">
+      <div class="title">{{status.rusName}}</div>
+      <div class="tasks">
+        <div class="taskFor" *ngFor="let task of tasks">
+          <div class="task" *ngIf="task.status===status.name">
+            <div class="task-section company">{{task.company}}</div>
+            <div class="task-section id-importance">
+              <div class="id">№ {{task.id}}</div>
+              <div class="importance">{{task.importance}}</div>
+            </div>
+            <div class="task-section type">{{task.type}}</div>
+            <div class="task-section date">{{dateParse(task.date) | date: 'dd.MM.yy'}}</div>
+            <div class="task-section description">{{task.description}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
