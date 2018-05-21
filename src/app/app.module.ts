@@ -4,10 +4,12 @@ import {AppComponent} from './app.component';
 import {Base} from './base.service';
 import {HttpClient} from '@angular/common/http';
 import {HttpClientModule} from '@angular/common/http';
+import {ModalComponent} from './modal/modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

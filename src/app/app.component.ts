@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Task} from './types.factory';
 import {Base} from './base.service';
+import {ModalComponent} from './modal/modal.component';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import {Base} from './base.service';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
+  @ViewChild(ModalComponent)
+  public modal: ModalComponent;
   tasks: Task[];
   draggableItem;
   statuses = [
@@ -45,9 +48,11 @@ export class AppComponent implements OnInit {
       this.tasks = res.response.tasks;
     });
   }
-  dateParse(date){
+
+  public dateParse(date) {
     return Date.parse(date);
   }
+
   dragStart(event) {
     event.target.style.opacity = 0.5;
     event.dataTransfer.effectAllowed = 'move';

@@ -1,0 +1,21 @@
+<div class="modal modal1">
+  <div class="black" (click)="hideModal()">
+  </div>
+
+  <div class="modal-content">
+    <div class="modal-head">
+      <div class="modal-close" (click)="hideModal()">x</div>
+      <div class="modal-title"><b>№ {{task.id}}</b> | {{dateParse(task.date) | date: 'dd.MM.yy hh:mm'}}</div>
+    </div>
+    <div class="modal-body">
+      <div class="task">
+        <div class="task-section company">{{task.company}}</div>
+        <div class="task-section id-importance">
+          <div class="id">{{task.type}}</div>
+          <div class="importance">{{task.importance}}</div>
+        </div>
+        <div class="task-section description">{{task.description}}</div>
+      </div>
+    </div>
+  </div>
+</div>

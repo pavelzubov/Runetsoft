@@ -7,15 +7,17 @@
         "description": "Исправить ошибку вон в том месте",
         "status": "reconciliation",
         "date": "2018-05-20T11:11:51.789Z",
-        "importance": "Средне"
+        "importance": "Средне",
+        "company":"Apple"
       },
       {
         "id": "2",
         "type": "new",
-        "description": "Добавить вот это без ошибок",
+        "description": "Добавить вот это без ошибок. Кроме того тут надо написать более длинный текст, чтобы можно было посмотреть как карточка ведет себя в большом и маленьком вариантах",
         "status": "reconciliation",
         "date": "2018-05-11T11:11:51.789Z",
-        "importance": "Средне"
+        "importance": "Средне",
+        "company":"Microsoft"
       },
       {
         "id": "3",
@@ -23,7 +25,8 @@
         "description": "Исправить ошибку в этом месте",
         "status": "pending",
         "date": "2018-05-21T11:11:51.789Z",
-        "importance": "Средне"
+        "importance": "Средне",
+        "company":"Apple"
       },
       {
         "id": "4",
@@ -31,7 +34,8 @@
         "description": "Просто добавить что-то",
         "status": "development",
         "date": "2018-05-15T11:11:51.789Z",
-        "importance": "Средне"
+        "importance": "Средне",
+        "company":"Microsoft"
       },
       {
         "id": "5",
@@ -39,7 +43,8 @@
         "description": "Изменить вон там",
         "status": "development",
         "date": "2018-05-12T11:11:51.789Z",
-        "importance": "Важно"
+        "importance": "Важно",
+        "company":"Cisco"
       },
       {
         "id": "6",
@@ -47,7 +52,8 @@
         "description": "Изменить вот тут",
         "status": "testing",
         "date": "2018-04-21T11:11:51.789Z",
-        "importance": "Не важно"
+        "importance": "Не важно",
+        "company":"Apple"
       },
       {
         "id": "7",
@@ -55,7 +61,8 @@
         "description": "Исправить срочно это",
         "status": "correcting",
         "date": "2018-03-11T11:11:51.789Z",
-        "importance": "Важно"
+        "importance": "Важно",
+        "company":"Cisco"
       },
       {
         "id": "8",
@@ -63,7 +70,8 @@
         "description": "Подправить вон то",
         "status": "done",
         "date": "2018-04-17T11:11:51.789Z",
-        "importance": "Не важно"
+        "importance": "Не важно",
+        "company":"Benq"
       },
       {
         "id": "9",
@@ -71,7 +79,8 @@
         "description": "Сделать что-то новое",
         "status": "done",
         "date": "2018-01-01T11:11:51.789Z",
-        "importance": "Не важно"
+        "importance": "Не важно",
+        "company":"Apple"
       },
       {
         "id": "10",
@@ -79,7 +88,8 @@
         "description": "Сделать хоть что-то",
         "status": "done",
         "date": "2018-05-20T11:11:51.789Z",
-        "importance": "Средне"
+        "importance": "Средне",
+        "company":"Intel"
       },
       {
         "id": "11",
@@ -87,7 +97,8 @@
         "description": "Исправить что есть",
         "status": "done",
         "date": "2018-05-21T11:11:51.789Z",
-        "importance": "Средне"
+        "importance": "Средне",
+        "company":"Apple"
       }
     ]
   }

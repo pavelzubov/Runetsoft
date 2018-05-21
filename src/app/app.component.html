@@ -25,13 +25,13 @@
      (dragleave)="dragLeave($event)"
      (dragenter)="dragEnter($event)"
      (dragend)="dragend($event)"></div>-->
-<div class="main-container">
+<div class="main-container" >
   <div class="bins">
     <div class="bin {{status.name}}" *ngFor="let status of statuses">
       <div class="title">{{status.rusName}}</div>
       <div class="tasks">
         <div class="taskFor" *ngFor="let task of tasks">
-          <div class="task" *ngIf="task.status===status.name">
+          <div class="task" *ngIf="task.status===status.name" (click)="modal.showModal(task)">
             <div class="task-section company">{{task.company}}</div>
             <div class="task-section id-importance">
               <div class="id">№ {{task.id}}</div>
@@ -46,3 +46,4 @@
     </div>
   </div>
 </div>
+<app-modal></app-modal>
