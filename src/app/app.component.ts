@@ -104,5 +104,6 @@ export class AppComponent implements OnInit {
     if (event.preventDefault) {
       event.preventDefault();
     }
+    console.log('over',event.target)
   }
 }

@@ -27,7 +27,8 @@
      (dragend)="dragend($event)"></div>-->
 <div class="main-container">
   <div class="bins">
-    <div class="{{status.name}}" *ngFor="let status of statuses" (drop)="drop($event)">
+    <div class="{{status.name}}" *ngFor="let status of statuses" (drop)="drop($event)"
+         (dragover)="dragOver($event)">
       <div class="title">{{status.rusName}}</div>
       <div class="tasks">
         <div class="taskFor" *ngFor="let task of tasks">
