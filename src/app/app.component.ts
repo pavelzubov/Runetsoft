@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
       rusName: 'Готов'
     }
   ];
+  statusesArray: string[] = [];
 
   constructor(public base: Base) {
   }
@@ -47,6 +48,9 @@ export class AppComponent implements OnInit {
     this.base.getData().subscribe(res => {
       this.tasks = res.response.tasks;
     });
+    for (let status of this.statuses) {
+      this.statusesArray.push(status.name);
+    }
   }
 
   public dateParse(date) {
@@ -58,24 +62,25 @@ export class AppComponent implements OnInit {
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.setData('text/plain', event.target.id);
     this.draggableItem = event.target;
-    // event.dataTransfer.addElement(event.target);
-    console.log('start', event, event.dataTransfer.setData, event.target);
+    //console.log('start', event, event.dataTransfer.setData, event.target);
   }
 
   drop(event) {
     if (event.stopPropagation) {
       event.stopPropagation(); // stops the browser from redirecting.
     }
+    event.target.closest('.bin').classList.remove('deny');
+    event.target.closest('.bin').classList.remove('allow');
+    let toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
+      fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
+    if (Math.abs(fromIndex - toIndex) > 1) {
+      return;
+    }
     const taskId = event.dataTransfer.getData('text/plain');
-    console.log('drop', taskId);
-    this.tasks.find(item => item.id = taskId).status = event.target.className;
-
-    /*    console.log(elem);
-        event.target.appendChild(document.getElementById(elem));
-        console.log('drop', event, elem);*/
+    this.tasks.find(item => item.id === taskId).status = event.target.closest('.bin').id;
   }
 
-  dragend(event) {
+  dragEnd(event) {
     event.target.style.opacity = 1;
     console.log('end', event);
   }
@@ -85,18 +90,26 @@ export class AppComponent implements OnInit {
   }
 
   dragEnter(event) {
-    console.log('enter', event);
-    const elem = this.draggableItem;
-    if (elem.id === 'aaa' && event.target.classList.contains('box3')) {
-      event.target.classList.add('block');
+    let toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
+      fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
+    if (Math.abs(fromIndex - toIndex) === 0) {
+      return
+    } else if (Math.abs(fromIndex - toIndex) > 1) {
+      event.target.closest('.bin').classList.add('deny');
+    } else {
+      event.target.closest('.bin').classList.add('allow');
     }
   }
 
   dragLeave(event) {
-    console.log('enter', event);
-    const elem = this.draggableItem;
-    if (elem.id === 'aaa' && event.target.classList.contains('box3')) {
-      event.target.classList.remove('block');
+    let toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
+      fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
+    if (Math.abs(fromIndex - toIndex) === 0) {
+      return
+    } else if (Math.abs(fromIndex - toIndex) > 1) {
+      event.target.closest('.bin').classList.remove('deny');
+    } else {
+      event.target.closest('.bin').classList.remove('allow');
     }
   }
 
@@ -104,6 +117,6 @@ export class AppComponent implements OnInit {
     if (event.preventDefault) {
       event.preventDefault();
     }
-    console.log('over',event.target)
+    // console.log('over',event.target)
   }
 }

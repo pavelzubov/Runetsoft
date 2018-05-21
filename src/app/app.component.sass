@@ -1,19 +1,6 @@
-.draggable
-  width: 100px
-  height: 100px
-  border: 1px solid black
-
-.boxes
-  width: 30%
-  height: 200px
-  margin: 15px
-  float: left
-
-.block
-  border-color: red
-
 .main-container
   height: 100%
+  margin-top: 3em
 
 .bins
   display: flex
@@ -21,24 +8,28 @@
   justify-content: center
   align-items: flex-start
   height: 100%
-  > div
-    width: 9em
-    padding: 10px
+  .bin
     height: 100%
-    border: 1px solid black
+
+.head
+  margin: 0.1em
+
+.title
+  text-align: center
 
 .task
   font-size: 0.7em
-  width: 100%
+  width: 10em
   display: flex
   flex-direction: column
   justify-content: flex-start
-  margin: 5px
+  margin: 0.2em
   border: 1px solid silver
-  border-radius: 4px
-  padding: 3px
+  border-radius: 0.4em
+  padding: 0.2em
+  cursor: pointer
   .task-section
-    padding: 3px
+    padding: 0.2em
   .id
     float: left
   .importance
@@ -52,5 +43,10 @@
   .description
     max-height: 3em
     overflow: hidden
-  .title
-    text-align: center
+
+.deny
+  background-color: rgba(240, 10, 5, 0.4)
+  opacity: 0.5
+.allow
+  background-color: rgba(10, 240, 5, 0.4)
+  opacity: 0.5
