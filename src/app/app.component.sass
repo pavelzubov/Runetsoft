@@ -12,18 +12,14 @@
 .block
   border-color: red
 
-.bin
-  width: 9em
-  padding: 10px
-
 .bins
   display: flex
   flex-direction: row
   justify-content: center
   align-items: flex-start
-
-.task-section
-  padding: 3px
+  > div
+    width: 9em
+    padding: 10px
 
 .task
   font-size: 0.7em
@@ -35,19 +31,20 @@
   border: 1px solid silver
   border-radius: 4px
   padding: 3px
-
-.id
-  float: left
-
-.importance
-  float: right
-.id-importance
-  background-color: ghostwhite
-.type
-  background-color: bisque
-.date
-  background-color: lavenderblush
-
-.description
-  max-height: 3em
-  overflow: hidden
+  .task-section
+    padding: 3px
+  .id
+    float: left
+  .importance
+    float: right
+  .id-importance
+    background-color: ghostwhite
+  .type
+    background-color: bisque
+  .date
+    background-color: lavenderblush
+  .description
+    max-height: 3em
+    overflow: hidden
+  .title
+    text-align: center

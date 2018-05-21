@@ -66,10 +66,13 @@ export class AppComponent implements OnInit {
     if (event.stopPropagation) {
       event.stopPropagation(); // stops the browser from redirecting.
     }
-    const elem = event.dataTransfer.getData('text/plain');
-    console.log(elem);
-    event.target.appendChild(document.getElementById(elem));
-    console.log('drop', event, elem);
+    const taskId = event.dataTransfer.getData('text/plain');
+    console.log('drop', taskId);
+    this.tasks.find(item => item.id = taskId).status = event.target.className;
+
+    /*    console.log(elem);
+        event.target.appendChild(document.getElementById(elem));
+        console.log('drop', event, elem);*/
   }
 
   dragend(event) {
