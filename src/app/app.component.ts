@@ -69,13 +69,13 @@ export class AppComponent implements OnInit {
     if (event.stopPropagation) {
       event.stopPropagation(); // stops the browser from redirecting.
     }
-    event.target.closest('.bin').classList.remove('deny');
+/*    event.target.closest('.bin').classList.remove('deny');
     event.target.closest('.bin').classList.remove('allow');
     let toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
       fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
     if (Math.abs(fromIndex - toIndex) > 1) {
       return;
-    }
+    }*/
     const taskId = event.dataTransfer.getData('text/plain');
     this.tasks.find(item => item.id === taskId).status = event.target.closest('.bin').id;
   }
@@ -90,33 +90,23 @@ export class AppComponent implements OnInit {
   }
 
   dragEnter(event) {
-    let toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
-      fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
-    if (Math.abs(fromIndex - toIndex) === 0) {
-      return
-    } else if (Math.abs(fromIndex - toIndex) > 1) {
-      event.target.closest('.bin').classList.add('deny');
-    } else {
-      event.target.closest('.bin').classList.add('allow');
-    }
+
   }
 
+
   dragLeave(event) {
-    let toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
-      fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
-    if (Math.abs(fromIndex - toIndex) === 0) {
-      return
-    } else if (Math.abs(fromIndex - toIndex) > 1) {
-      event.target.closest('.bin').classList.remove('deny');
-    } else {
-      event.target.closest('.bin').classList.remove('allow');
-    }
   }
 
   dragOver(event) {
     if (event.preventDefault) {
       event.preventDefault();
     }
-    // console.log('over',event.target)
+    const toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
+      fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
+    if (Math.abs(fromIndex - toIndex) > 1) {
+      event.dataTransfer.dropEffect = 'none';
+    } else {
+      event.dataTransfer.dropEffect = 'move';
+    }
   }
 }

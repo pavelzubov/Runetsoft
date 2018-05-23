@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic');
 body,html {
-  font-family: Arial;
+  font-family: 'PT Sans';
   padding:0;
   margin:0;
   height:100%;
