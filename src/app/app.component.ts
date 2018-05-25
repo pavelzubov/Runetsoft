@@ -11,9 +11,9 @@ import {ModalComponent} from './modal/modal.component';
 export class AppComponent implements OnInit {
   @ViewChild(ModalComponent)
   public modal: ModalComponent;
-  tasks: Task[];
-  draggableItem;
-  statuses = [
+  public tasks: Task[];
+  private draggableItem;
+  public statuses = [
     {
       name: 'reconciliation',
       rusName: 'Согласование'
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
       rusName: 'Готов'
     }
   ];
-  statusesArray: string[] = [];
+  private statusesArray: string[] = [];
 
   constructor(public base: Base) {
   }
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
     this.base.getData().subscribe(res => {
       this.tasks = res.response.tasks;
     });
-    for (let status of this.statuses) {
+    for (const status of this.statuses) {
       this.statusesArray.push(status.name);
     }
   }
@@ -57,47 +57,27 @@ export class AppComponent implements OnInit {
     return Date.parse(date);
   }
 
-  dragStart(event) {
+  public dragStart(event) {
     event.target.style.opacity = 0.5;
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.setData('text/plain', event.target.id);
     this.draggableItem = event.target;
-    //console.log('start', event, event.dataTransfer.setData, event.target);
   }
 
-  drop(event) {
+  public drop(event) {
     if (event.stopPropagation) {
-      event.stopPropagation(); // stops the browser from redirecting.
+      event.stopPropagation();
     }
-/*    event.target.closest('.bin').classList.remove('deny');
-    event.target.closest('.bin').classList.remove('allow');
-    let toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
-      fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
-    if (Math.abs(fromIndex - toIndex) > 1) {
-      return;
-    }*/
     const taskId = event.dataTransfer.getData('text/plain');
     this.tasks.find(item => item.id === taskId).status = event.target.closest('.bin').id;
   }
 
-  dragEnd(event) {
+  public dragEnd(event) {
     event.target.style.opacity = 1;
     console.log('end', event);
   }
 
-  dragexit(event) {
-    console.log('exit', event);
-  }
-
-  dragEnter(event) {
-
-  }
-
-
-  dragLeave(event) {
-  }
-
-  dragOver(event) {
+  public dragOver(event) {
     if (event.preventDefault) {
       event.preventDefault();
     }

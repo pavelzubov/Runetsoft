@@ -1,35 +1,6 @@
-<!--<div id="aaa" class="draggable" draggable="true"
-     (dragstart)="dragStart($event)"
-     (dragenter)="dragEnter($event)"
-     (dragexit)="dragexit($event)"
-     >
-  <div>Строка 1</div>
-  <div>Строка 2</div>
-  <div>Строка 3</div>
-</div>
-<div class="box1 boxes"
-     (drop)="drop($event)"
-     (dragover)="dragOver($event)"
-     (dragenter)="dragEnter($event)"
-     (dragleave)="dragLeave($event)"
-     (dragend)="dragend($event)"></div>
-<div class="box2 boxes"
-     (drop)="drop($event)"
-     (dragover)="dragOver($event)"
-     (dragenter)="dragEnter($event)"
-     (dragleave)="dragLeave($event)"
-     (dragend)="dragend($event)"></div>
-<div class="box3 boxes"
-     (drop)="drop($event)"
-     (dragover)="dragOver($event)"
-     (dragleave)="dragLeave($event)"
-     (dragenter)="dragEnter($event)"
-     (dragend)="dragend($event)"></div>-->
 <div class="main-container">
   <div class="bins">
     <div id="{{status.name}}" class="bin" *ngFor="let status of statuses" (drop)="drop($event)"
-         (dragleave)="dragLeave($event)"
-         (dragenter)="dragEnter($event)"
          (dragover)="dragOver($event)">
       <div class="head">
         <div class="title">{{status.rusName}}</div>

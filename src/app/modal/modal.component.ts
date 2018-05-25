@@ -10,7 +10,7 @@ import {Task} from '../types.factory';
   },
 })
 export class ModalComponent implements OnInit {
-  task: Task;
+  public task: Task;
 
   constructor() {
   }
@@ -33,7 +33,7 @@ export class ModalComponent implements OnInit {
     return Date.parse(date);
   }
 
-  listenEsc(event) {
+  private listenEsc(event) {
     if (event.keyCode === 27) {
       this.hideModal();
     }
