@@ -3,7 +3,10 @@
     <div id="{{status.name}}" class="bin" *ngFor="let status of statuses" (drop)="drop($event)"
          (dragover)="dragOver($event)">
       <div class="head">
-        <div class="title">{{status.rusName}}</div>
+        <div class="title">
+          {{status.rusName}}
+          <span class="count">(</span>{{countTasks(status)}}<span class="count">)</span>
+        </div>
       </div>
       <div class="tasks">
         <div class="taskFor" *ngFor="let task of tasks">

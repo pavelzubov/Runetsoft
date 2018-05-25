@@ -11,7 +11,7 @@ import {ModalComponent} from './modal/modal.component';
 export class AppComponent implements OnInit {
   @ViewChild(ModalComponent)
   public modal: ModalComponent;
-  public tasks: Task[];
+  public tasks: Task[] = [];
   private draggableItem;
   public statuses = [
     {
@@ -74,7 +74,6 @@ export class AppComponent implements OnInit {
 
   public dragEnd(event) {
     event.target.style.opacity = 1;
-    console.log('end', event);
   }
 
   public dragOver(event) {
@@ -83,10 +82,14 @@ export class AppComponent implements OnInit {
     }
     const toIndex = this.statusesArray.findIndex(item => item === event.target.closest('.bin').id),
       fromIndex = this.statusesArray.findIndex(item => item === this.draggableItem.closest('.bin').id);
-    if (Math.abs(fromIndex - toIndex) > 1) {
+    if (toIndex - fromIndex !== 1) {
       event.dataTransfer.dropEffect = 'none';
     } else {
       event.dataTransfer.dropEffect = 'move';
     }
+  }
+
+  public countTasks(status) {
+    return this.tasks.filter(task => task.status === status.name).length;
   }
 }
